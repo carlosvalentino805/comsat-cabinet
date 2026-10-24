@@ -101,14 +101,14 @@
   <header>
     <h1>COMSAT Toshiba Spares Cabinet &mdash; Full Inventory</h1>
 <div style="margin: 12px 20px;">
-<button onclick="document.getElementById('overlay3d').style.display='block';document.body.style.overflow='hidden';" style="background:#1a73e8;color:#fff;border:none;padding:10px 20px;font-size:15px;border-radius:6px;cursor:pointer;font-weight:bold;">3D Mode</button>
+<button onclick="document.getElementById('overlay3d').style.display='block';document.body.style.overflow='hidden';var f=document.getElementById('twin3d');if(f&&!f.srcdoc){f.srcdoc=f.getAttribute('data-srcdoc');}" style="background:#1a73e8;color:#fff;border:none;padding:10px 20px;font-size:15px;border-radius:6px;cursor:pointer;font-weight:bold;">3D Mode</button>
 <span style="margin-left:10px;font-size:12px;color:#555;">Interactive 3D digital twin (v20.16)</span>
 </div>
 <div id="overlay3d" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:#000;z-index:9999;">
 <div style="position:absolute;top:10px;left:10px;z-index:10000;">
 <button onclick="document.getElementById('overlay3d').style.display='none';document.body.style.overflow='';" style="background:#fff;color:#111;border:1px solid #888;padding:8px 16px;font-size:14px;border-radius:6px;cursor:pointer;font-weight:bold;">2D Mode</button>
 </div>
-<iframe style="width:100%;height:100%;border:none;" title="3D Digital Twin" srcdoc="&lt;!DOCTYPE html&gt;
+<iframe id="twin3d" style="width:100%;height:100%;border:none;" title="3D Digital Twin" data-srcdoc="&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
 &lt;meta charset=&quot;utf-8&quot;&gt;
@@ -250,7 +250,7 @@
   &lt;button id=&quot;r-legend&quot; title=&quot;Show/hide controls legend&quot;&gt;?&lt;/button&gt;
   &lt;div class=&quot;rgrow&quot;&gt;&lt;/div&gt;
   &lt;button id=&quot;r-collapse&quot; title=&quot;Hide sidebar&quot;&gt;&amp;#10005;&lt;/button&gt;
-&lt;!-- v20.11: computer controls legend (Carlos 2026-10-02) --&gt;
+&lt;!-- v20.11: computer controls legend (2026-10-02) --&gt;
 &lt;div id=&quot;controls-legend&quot; style=&quot;position:fixed;bottom:12px;left:12px;background:rgba(255,255,255,0.92);border:1px solid #b9c6d2;border-radius:8px;padding:10px 14px;font-size:12px;line-height:1.6;z-index:1000;box-shadow:0 2px 8px rgba(0,0,0,0.15);max-width:280px;&quot;&gt;
   &lt;div style=&quot;font-weight:bold;margin-bottom:4px;&quot;&gt;Computer Controls&lt;/div&gt;
   &lt;div&gt;&lt;b&gt;Drag:&lt;/b&gt; rotate view&lt;/div&gt;
@@ -265,12 +265,12 @@
 &lt;aside id=&quot;panel&quot; aria-label=&quot;Details&quot;&gt;
   &lt;h1&gt;COMSAT Toshiba Spares Cabinet , 3D Digital Twin&lt;/h1&gt;
   &lt;p&gt;Drag background to orbit &amp;middot; scroll to zoom &amp;middot; right-drag to pan &amp;middot; click an item for details &amp;middot; turn on &lt;b&gt;Edit&lt;/b&gt; to move items.&lt;/p&gt;
-  &lt;p class=&quot;dims&quot;&gt;Interior 36&amp;Prime;W &amp;times; 29&amp;Prime;D per Carlos&amp;rsquo;s 2026-09-30 measurements. Shelf clearances: S1 9.5&amp;Prime; &amp;middot; S2 5.5&amp;Prime; &amp;middot; S3 10.5&amp;Prime; &amp;middot; S4 13.5&amp;Prime; &amp;middot; S5 27&amp;Prime;. Items marked * have estimated dims.&lt;/p&gt;
+  &lt;p class=&quot;dims&quot;&gt;Interior 36&amp;Prime;W &amp;times; 29&amp;Prime;D per my measurements on 2026-09-30. Shelf clearances: S1 9.5&amp;Prime; &amp;middot; S2 5.5&amp;Prime; &amp;middot; S3 10.5&amp;Prime; &amp;middot; S4 13.5&amp;Prime; &amp;middot; S5 27&amp;Prime;. Items marked * have estimated dims.&lt;/p&gt;
   &lt;details class=&quot;setcat&quot; open&gt;
     &lt;summary&gt;&lt;span class=&quot;sic&quot;&gt;&amp;#128165;&lt;/span&gt;Explosion&lt;/summary&gt;
     &lt;div class=&quot;setbody&quot;&gt;
       &lt;label class=&quot;radiorow&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;exmode&quot; value=&quot;flat&quot; checked&gt; Flat fan &lt;span class=&quot;hint&quot;&gt;spreads out + upward on the shelf plane&lt;/span&gt;&lt;/label&gt;
-      &lt;label class=&quot;radiorow&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;exmode&quot; value=&quot;crown&quot;&gt; Crown &lt;span class=&quot;hint&quot;&gt;halo ring — all 29 items circle the cabinet in the front plane&lt;/span&gt;&lt;/label&gt;
+      &lt;label class=&quot;radiorow&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;exmode&quot; value=&quot;crown&quot;&gt; Crown &lt;span class=&quot;hint&quot;&gt;halo ring, all 28 items circle the cabinet in the front plane&lt;/span&gt;&lt;/label&gt;
     &lt;/div&gt;
   &lt;/details&gt;
   &lt;details class=&quot;setcat&quot;&gt;
@@ -307,44 +307,45 @@
   &lt;div id=&quot;info&quot;&gt;&lt;span style=&quot;color:#7a8896&quot;&gt;Click any item in the scene.&lt;/span&gt;&lt;/div&gt;
   &lt;details class=&quot;setcat&quot;&gt;
     &lt;summary&gt;&lt;span class=&quot;sic&quot;&gt;&amp;#8505;&lt;/span&gt;About&lt;/summary&gt;
-    &lt;div class=&quot;setbody&quot;&gt;&lt;p class=&quot;about&quot;&gt;Cabinet digital twin v16 &amp;middot; Created by Carlos Landeros Angel &amp;middot; 2026-10-01&lt;br&gt;
-    Generic blue shelf, 36&amp;Prime;W &amp;times; 29&amp;Prime;D &amp;times; 69&amp;Prime;H (height from Carlos&amp;rsquo;s shelf heights). Items marked * have estimated dims.&lt;/p&gt;
+    &lt;div class=&quot;setbody&quot;&gt;&lt;p class=&quot;about&quot;&gt;COMSAT Toshiba Spares Cabinet, 3D Digital Twin (combined release v13, twin v20.16) &amp;middot; Carlos Landeros Angel &amp;middot; 2026-10-01&lt;br&gt;
+    Generic blue shelf, 36&amp;Prime;W &amp;times; 29&amp;Prime;D &amp;times; 69&amp;Prime;H (height from my measured shelf heights). Items marked * have estimated dims.&lt;/p&gt;
     &lt;details class=&quot;revhist&quot;&gt;&lt;summary&gt;Revision history&lt;/summary&gt;&lt;ul&gt;
-      &lt;li&gt;&lt;b&gt;v1&lt;/b&gt; , 2026-09-30 , Initial cabinet model: blue steel cabinet 36x29x69 in, five shelves, basic box items, orbit controls.&lt;/li&gt;
-      &lt;li&gt;&lt;b&gt;v2&lt;/b&gt; , 2026-09-30 , Item catalog expanded: PCB cartons, fuse kit, RK5 carton, hardware boxes, trays, EMT couplings, bushings, trash-bag roll.&lt;/li&gt;
-      &lt;li&gt;&lt;b&gt;v3&lt;/b&gt; , 2026-09-30 , Cabinet doors added: closed on load, click to swing open, then fade away. Doors button restores them.&lt;/li&gt;
-      &lt;li&gt;&lt;b&gt;v4&lt;/b&gt; , 2026-09-30 , Labels and info panel: click any item for name, dimensions, and description. Legend with color swatches.&lt;/li&gt;
-      &lt;li&gt;&lt;b&gt;v5&lt;/b&gt; , 2026-09-30 , Exploded view: flat helix fan and crown halo ring modes. Items spiral out with Indigo&#x27;s snap easing.&lt;/li&gt;
-      &lt;li&gt;&lt;b&gt;v6&lt;/b&gt; , 2026-09-30 , Edit mode: drag items to reposition, snap grid (0.5/1/3/6 in), positions save in browser. Shelf-bounds clamping.&lt;/li&gt;
-      &lt;li&gt;&lt;b&gt;v7&lt;/b&gt; , 2026-09-30 , Easter egg: peek-a-boo peace-sign dude (Indigo&#x27;s idea). Box lid-flap animation on click.&lt;/li&gt;
-      &lt;li&gt;&lt;b&gt;v8&lt;/b&gt; , 2026-10-01 , Fixed the box-jump bug Indigo found in his stress test: home positions re-snapshot only when fully assembled, so a mid-animation re-toggle can&amp;apos;t corrupt them.&lt;/li&gt;
-      &lt;li&gt;&lt;b&gt;v9&lt;/b&gt; , 2026-10-01 , Rebuild baseline for the AI-team review round.&lt;/li&gt;
-      &lt;li&gt;&lt;b&gt;v9-body-aura&lt;/b&gt; , 2026-10-01 , Variant with a glow aura on the cabinet body.&lt;/li&gt;
-      &lt;li&gt;&lt;b&gt;v10&lt;/b&gt; , 2026-10-01 , AI-review fixes: adaptive DPR and shadows for mobile, label renderer moved inside the viewport, easter-egg lid memory-leak fix, peace-sign hand counter-rotation, bigger dude.&lt;/li&gt;
-      &lt;li&gt;&lt;b&gt;v11&lt;/b&gt; , 2026-10-01 , Aura variant: whole-cabinet glow.&lt;/li&gt;
-      &lt;li&gt;&lt;b&gt;v12&lt;/b&gt; , 2026-10-01 , Crown redesigned as a flat halo ring in the height x width plane; aura removed; camera pulled back to frame the ring.&lt;/li&gt;
-      &lt;li&gt;&lt;b&gt;v13&lt;/b&gt; , 2026-10-01 , Crown became a taller oval with the sides pulled toward the cabinet; three depth lanes with true 3D clearance; zoom-out extended to frame the full exploded view; aspect-aware camera for portrait phones.&lt;/li&gt;
-      &lt;li&gt;&lt;b&gt;v14&lt;/b&gt; , 2026-10-01 , Box flaps and easter eggs now fire when fully exploded too, and clicking a new box interrupts the running animation; the fuse kit gets a spark-flash easter egg; shelves matched to the real panel blue.&lt;/li&gt;
-      &lt;li&gt;&lt;b&gt;v15&lt;/b&gt; , 2026-10-01 , Full AI-team review fixes: eggs skip the stack search when fully exploded (the lid can no longer land on a wrong box sharing the x/z column), flap works even if the dude asset fails to build, mode switches and real drags tear down a running egg, explode parameter contract documented, legend swatches match the real shelf blue, keyboard &amp;quot;e&amp;quot; fires the egg on the selected box.&lt;/li&gt;
-      &lt;li&gt;&lt;b&gt;v16&lt;/b&gt; , 2026-10-01 , Carlos&amp;apos;s cleanup round: the little dude is now small and cute (shoulder-height pop-out) with a proper V peace sign; cabinet doors start closed, click to swing them open, then they fade away (Doors button brings them back); every carton now gets the lid-flap easter egg (post-mount kits included).&lt;/li&gt;
-      &lt;li&gt;&lt;b&gt;v16b&lt;/b&gt; , 2026-10-01 , Dimension pass: every object rebuilt from Carlos&amp;apos;s tape measurements plus the 75-photo review, RK5 carton upright (8x6x1.25), PCB cartons 19x3x12.5 with the fuse kit stacked on PCB 1, DCPS 20x10.5x18, EMT couplings 4.5 in dia, hollow bushing rings, trash-bag roll upright, 12 in brackets, tray stack, copper L strap, bagged fuse roll, book sleeve 19x11.75 (location unverified). 32 selectable objects; S3 stays empty; doors, lids, and the dude unchanged.&lt;/li&gt;
-      &lt;li&gt;&lt;b&gt;v16c&lt;/b&gt; , 2026-10-01 , Blank-page fix (the v16b EMT throat block threw a ReferenceError and killed the whole scene) plus Gemini one-item findings: the &amp;quot;adapter&amp;quot; is the EMT fitting&amp;apos;s conduit locknut, standalone box removed, locknut ring modeled at each EMT base (31 selectable objects); the &amp;quot;faceplate&amp;quot; is a cabinet blanking panel ~12x11 in; trash-bag roll keeps Carlos&amp;apos;s 8.25x4 tape (photo dispute flagged for re-measure); the bagged fuse stays its own selectable item.&lt;/li&gt;
-      &lt;li&gt;&lt;b&gt;v17&lt;/b&gt; , 2026-10-01 , Carlos layout corrections: S1 right side is front stack PCB2/PCB3 plus back stack PCB4/PCB5 (lengthwise facing front); PCB1 smallest-face-front pushed to back with the fuse kit on top; RK5 upright at the left wall with the bagged fuse roll on top of the carton; S4 trash-bag roll fixed to 8.3 in tall x 4 in dia upright; S5 rebuilt (Hardware box smallest-face-front, black door panel standing against the back wall behind it, Accessories box on the Hardware box, tray stack right with the booklet sleeve standing between trays and right wall, brackets in front of trays, copper L on the trays); 41 in panels remodeled as black C-channels in bubble wrap with the paper label band; saved-position key versioned so every device opens the same authored layout; explicit unified mouse/touchpad/touch controls.&lt;/li&gt;
-      &lt;li&gt;&lt;b&gt;v17b&lt;/b&gt; , 2026-10-01 , Blank-file fix (the v17 controls block referenced THREE.MOUSE/THREE.TOUCH, but the inlined three.js exposes MOUSE/TOUCH as bare names, so the module threw on load and rendered blank) plus the COMSAT TOSHIBA UPS SPARES nameplate strip now fades and hides with the doors and comes back with them.&lt;/li&gt;
-      &lt;li&gt;&lt;b&gt;v17c&lt;/b&gt; , 2026-10-01 , Unified home camera (GrokBot finding: the portrait pullback made phones open zoomed-out even with the same layout, so now every device opens at the same distance and direction), DCPS transformer label corrected to 14A-05-1754.&lt;/li&gt;
-      &lt;li&gt;&lt;b&gt;v17d&lt;/b&gt; , 2026-10-01 , Carlos pass 2: RK5 to front-left against the left wall with the fuse roll on top lodged between wall and PCB stack; S2 panels re-taped as one bundle (2 long + 4 small on top at the front end) on the opposite diagonal; EMT couplings stacked in the back-left corner; bushings tucked in the EMT/bundle corner; Toshiba nameplate moved in front of the doors; center door seam plus a Click doors to open hint.&lt;/li&gt;
-      &lt;li&gt;&lt;b&gt;v17e&lt;/b&gt; , 2026-10-01 , Carlos bottom-shelf pass: 12 trays rebuilt as flat nesting trays in two stacks of 6 (not a solid box); copper strap moved to the top of the shorter stack; book sleeve flush against the right wall; removed the estimated post-mount kits and door flap (Carlos questioned them as artifacts).&lt;/li&gt;
-      &lt;li&gt;&lt;b&gt;v17f&lt;/b&gt; , 2026-10-01 , Full AI-team verified positions: RK5 flat against left wall (1.25 in face to wall, 8 in tall, between wall and PCB1/fusekit); fuse roll front-to-back on top; EMT couplings side by side (not stacked) clear of the panel bundle; white bushings side by side right of the EMTs. ChatGPT/Gemini/GrokBot/Copilot consensus with Carlos overrides.&lt;/li&gt;
-      &lt;li&gt;&lt;b&gt;v17g&lt;/b&gt; , 2026-10-01 , Carlos refinements: book sleeve short-ways-up flat against right wall; trays as two rectangular 6-stacks; door seam + Toshiba tag + hint vanish the instant doors start opening; entire cabinet frame blue; PCB labels show name + title.&lt;/li&gt;
-      &lt;li&gt;&lt;b&gt;v18&lt;/b&gt; , 2026-10-01 , S2 panel geometry rebuild (AI-team reconciled): 4in width restored on all six panels; 3in total stack (large pair 1.25in, small A pair 0.75in, small B pair 1.0in); formed lips modeled (0.5in Small A, 0.25in Small B ends, 0.25in Large sides); v17g diagonal positions kept.&lt;/li&gt;
-      &lt;li&gt;&lt;b&gt;v20.7&lt;/b&gt; , 2026-10-02 , Shelf ReferenceError (Carlos): targetIdx used before let declaration crashed shelf-skip; removed broken hysteresis, simple 42px steps.&lt;/li&gt;
-      &lt;li&gt;&lt;b&gt;v20.6&lt;/b&gt; , 2026-10-02 , Stack children (Carlos): items stacked on dragged item now move with it (copper on accbox follows).&lt;/li&gt;
-      &lt;li&gt;&lt;b&gt;v20.5&lt;/b&gt; , 2026-10-02 , Tray ghosts (Carlos): trays create 2 meshes + 2 edge sets not tracked; now stored in userData.trayParts and moved by applyBase.&lt;/li&gt;
-      &lt;li&gt;&lt;b&gt;v20.4&lt;/b&gt; , 2026-10-02 , Tight zones + collision (Carlos): 42px steps with 14px hysteresis (not 20% zones); allow same-level stacking (fixes accbox through hwbox).&lt;/li&gt;
-      &lt;li&gt;&lt;b&gt;v20.3&lt;/b&gt; , 2026-10-02 , Ghost fix + progressive shelf-skip (Carlos): edges/label move with applyBase (no skeletons); pointer Y zones map to shelves (drag up gradually → S4→S3→S2→S1).&lt;/li&gt;
-      &lt;li&gt;&lt;b&gt;v20.2&lt;/b&gt; , 2026-10-02 , Coordinate fix (GrokBot): group.position.y stays 0, use baseY via applyBase(); fixes floating when unstacking.&lt;/li&gt;
-      &lt;li&gt;&lt;b&gt;v19.1&lt;/b&gt; , 2026-10-02 , Carlos fixes: explode shelf-bands (S1 top both sides → S5 bottom both sides) in crown and flat modes; snap-to-ground when unstacking (no floating); itemsByShelf sync on shelf change.&lt;/li&gt;
-      &lt;li&gt;&lt;b&gt;v19&lt;/b&gt; , 2026-10-02 , Carlos six fixes: (1) revision history completed v1-v19 in order; (2) drag collision: items auto-stack on top if room, turn red/transparent if no room, never pass through; (3) drag shelf-skip: pull up high to move to next shelf with snap; (4) explode keeps shelf order (S5 low, S1 high), panels explode freely; (5) easter-egg dude moved from RK5 to Hardware box; (6) flap bug fixed: bottom-shelf boxes open their own flaps.&lt;/li&gt;
+      &lt;li&gt;&lt;b&gt;v1&lt;/b&gt; , 2026-09-30 , I built the initial cabinet model: blue steel cabinet 36x29x69 in, five shelves, basic box items, orbit controls.&lt;/li&gt;
+      &lt;li&gt;&lt;b&gt;v2&lt;/b&gt; , 2026-09-30 , I expanded the item catalog: PCB cartons, fuse kit, RK5 carton, hardware boxes, trays, EMT couplings, bushings, trash-bag roll.&lt;/li&gt;
+      &lt;li&gt;&lt;b&gt;v3&lt;/b&gt; , 2026-09-30 , I added the cabinet doors: closed on load, click to swing open, then fade away. The Doors button restores them.&lt;/li&gt;
+      &lt;li&gt;&lt;b&gt;v4&lt;/b&gt; , 2026-09-30 , I added labels and the info panel: click any item for its name, dimensions, and description. Legend with color swatches.&lt;/li&gt;
+      &lt;li&gt;&lt;b&gt;v5&lt;/b&gt; , 2026-09-30 , I added the exploded view: flat helix fan and crown halo ring modes, with a fast snap easing on the items.&lt;/li&gt;
+      &lt;li&gt;&lt;b&gt;v6&lt;/b&gt; , 2026-09-30 , I added Edit mode: drag items to reposition, snap grid (0.5/1/3/6 in), positions save in the browser. Shelf-bounds clamping.&lt;/li&gt;
+      &lt;li&gt;&lt;b&gt;v7&lt;/b&gt; , 2026-09-30 , I added a hidden surprise: a peek-a-boo peace-sign character, plus the box lid-flap animation on click.&lt;/li&gt;
+      &lt;li&gt;&lt;b&gt;v8&lt;/b&gt; , 2026-10-01 , I fixed the box-jump bug I found in stress testing: home positions now re-snapshot only when fully assembled, so a mid-animation re-toggle can&#x27;t corrupt them.&lt;/li&gt;
+      &lt;li&gt;&lt;b&gt;v9&lt;/b&gt; , 2026-10-01 , I set a clean rebuild baseline before a full review pass.&lt;/li&gt;
+      &lt;li&gt;&lt;b&gt;v9-body-aura&lt;/b&gt; , 2026-10-01 , A variant I tested with a glow aura on the cabinet body.&lt;/li&gt;
+      &lt;li&gt;&lt;b&gt;v10&lt;/b&gt; , 2026-10-01 , I applied my review fixes: adaptive DPR and shadows for mobile, label renderer moved inside the viewport, a lid memory-leak fix for the surprise character, peace-sign hand counter-rotation, and a bigger character.&lt;/li&gt;
+      &lt;li&gt;&lt;b&gt;v11&lt;/b&gt; , 2026-10-01 , An aura variant I tested: whole-cabinet glow.&lt;/li&gt;
+      &lt;li&gt;&lt;b&gt;v12&lt;/b&gt; , 2026-10-01 , I redesigned the crown as a flat halo ring in the height by width plane, removed the aura, and pulled the camera back to frame the ring.&lt;/li&gt;
+      &lt;li&gt;&lt;b&gt;v13&lt;/b&gt; , 2026-10-01 , I made the crown a taller oval with the sides pulled toward the cabinet; three depth lanes with true 3D clearance; I extended the zoom-out to frame the full exploded view and added an aspect-aware camera for portrait phones.&lt;/li&gt;
+      &lt;li&gt;&lt;b&gt;v14&lt;/b&gt; , 2026-10-01 , I made box flaps and the surprise animation fire when fully exploded too, and clicking a new box now interrupts the running animation; the fuse kit gets a spark-flash effect; I matched the shelves to the real panel blue.&lt;/li&gt;
+      &lt;li&gt;&lt;b&gt;v15&lt;/b&gt; , 2026-10-01 , I applied my full review fixes: the lid animation skips the stack search when fully exploded (the lid can no longer land on a wrong box sharing the x/z column), the flap works even if the character asset fails to build, mode switches and real drags tear down a running animation, I documented the explode parameter contract, legend swatches match the real shelf blue, and the keyboard &quot;e&quot; key fires the animation on the selected box.&lt;/li&gt;
+      &lt;li&gt;&lt;b&gt;v16&lt;/b&gt; , 2026-10-01 , My cleanup round: the little character is now small (shoulder-height pop-out) with a proper V peace sign; cabinet doors start closed, click to swing them open, then they fade away (the Doors button brings them back); every carton now gets the lid-flap animation (post-mount kits included).&lt;/li&gt;
+      &lt;li&gt;&lt;b&gt;v16b&lt;/b&gt; , 2026-10-01 , My dimension pass: I rebuilt every object from my tape measurements plus my review of 75 photos. RK5 carton upright (8x6x1.25), PCB cartons 19x3x12.5 with the fuse kit stacked on PCB 1, DCPS 20x10.5x18, EMT couplings 4.5 in dia, hollow bushing rings, trash-bag roll upright, 12 in brackets, tray stack, copper L strap, bagged fuse roll, book sleeve 19x11.75 (location unverified). 32 selectable objects; S3 stays empty; doors, lids, and the character unchanged.&lt;/li&gt;
+      &lt;li&gt;&lt;b&gt;v16c&lt;/b&gt; , 2026-10-01 , I fixed a blank-page bug (the v16b EMT throat block threw a ReferenceError and killed the whole scene) and corrected two items I had misidentified: the &quot;adapter&quot; is the EMT fitting&#x27;s conduit locknut, so I removed the standalone box and modeled a locknut ring at each EMT base (31 selectable objects); the &quot;faceplate&quot; is a cabinet blanking panel, about 12x11 in. The trash-bag roll keeps my 8.25x4 tape measurement (photo dispute flagged for re-measure); the bagged fuse stays its own selectable item.&lt;/li&gt;
+      &lt;li&gt;&lt;b&gt;v17&lt;/b&gt; , 2026-10-01 , My layout corrections: S1 right side is the front stack PCB2/PCB3 plus the back stack PCB4/PCB5 (lengthwise facing front); I pushed PCB1, smallest face front, to the back with the fuse kit on top; RK5 upright at the left wall with the bagged fuse roll on top of the carton; S4 trash-bag roll fixed to 8.3 in tall by 4 in dia, upright; I rebuilt S5 (Hardware box smallest face front, black door panel standing against the back wall behind it, Accessories box on the Hardware box, tray stack on the right with the booklet sleeve standing between the trays and the right wall, brackets in front of the trays, copper L on the trays); I remodeled the 41 in panels as black C-channels in bubble wrap with the paper label band; I versioned the saved-position key so every device opens the same authored layout; unified mouse, touchpad, and touch controls.&lt;/li&gt;
+      &lt;li&gt;&lt;b&gt;v17b&lt;/b&gt; , 2026-10-01 , I fixed a blank-file bug (the v17 controls block referenced THREE.MOUSE/THREE.TOUCH, but the inlined three.js exposes MOUSE/TOUCH as bare names, so the module threw on load and rendered blank) and made the COMSAT TOSHIBA UPS SPARES nameplate strip fade and hide with the doors and come back with them.&lt;/li&gt;
+      &lt;li&gt;&lt;b&gt;v17c&lt;/b&gt; , 2026-10-01 , I unified the home camera: the portrait pullback made phones open zoomed out even with the same layout, so now every device opens at the same distance and direction. I also corrected the DCPS transformer label to 14A-05-1754.&lt;/li&gt;
+      &lt;li&gt;&lt;b&gt;v17d&lt;/b&gt; , 2026-10-01 , My second layout pass: RK5 to the front left against the left wall, with the fuse roll on top lodged between the wall and the PCB stack; S2 panels re-taped as one bundle (2 long + 4 small on top at the front end) on the opposite diagonal; EMT couplings stacked in the back-left corner; bushings tucked in the EMT/bundle corner; Toshiba nameplate moved in front of the doors; center door seam plus a &quot;Click doors to open&quot; hint.&lt;/li&gt;
+      &lt;li&gt;&lt;b&gt;v17e&lt;/b&gt; , 2026-10-01 , My bottom-shelf pass: I rebuilt the 12 trays as flat nesting trays in two stacks of 6 (not a solid box); copper strap moved to the top of the shorter stack; book sleeve flush against the right wall; I removed the estimated post-mount kits and door flap, which I had added in error.&lt;/li&gt;
+      &lt;li&gt;&lt;b&gt;v17f&lt;/b&gt; , 2026-10-01 , I verified these positions against the cabinet: RK5 flat against the left wall (1.25 in face to the wall, 8 in tall, between the wall and PCB1/fuse kit); fuse roll front to back on top; EMT couplings side by side (not stacked), clear of the panel bundle; white bushings side by side, right of the EMTs.&lt;/li&gt;
+      &lt;li&gt;&lt;b&gt;v17g&lt;/b&gt; , 2026-10-01 , My refinements: book sleeve short-ways up, flat against the right wall; trays as two rectangular stacks of 6; the door seam, Toshiba tag, and hint vanish the instant the doors start opening; the entire cabinet frame is blue; PCB labels show name and title.&lt;/li&gt;
+      &lt;li&gt;&lt;b&gt;v18&lt;/b&gt; , 2026-10-01 , I rebuilt the S2 panel geometry: 4 in width restored on all six panels; 3 in total stack (large pair 1.25 in, small A pair 0.75 in, small B pair 1.0 in); formed lips modeled (0.5 in Small A, 0.25 in Small B ends, 0.25 in Large sides); I kept the v17g diagonal positions.&lt;/li&gt;
+      &lt;li&gt;&lt;b&gt;v19&lt;/b&gt; , 2026-10-02 , I made six fixes: (1) I completed this revision history, v1 to v19, in order; (2) drag collision: items auto-stack on top if there is room, turn red and transparent if there is no room, and never pass through; (3) drag shelf-skip: pull up high to move to the next shelf, with snap; (4) explode keeps shelf order (S5 low, S1 high), and panels explode freely; (5) I moved the surprise character from RK5 to the Hardware box; (6) I fixed the flap bug: bottom-shelf boxes open their own flaps.&lt;/li&gt;
+      &lt;li&gt;&lt;b&gt;v19.1&lt;/b&gt; , 2026-10-02 , I added explode shelf bands (S1 top on both sides to S5 bottom on both sides) in crown and flat modes, snap-to-ground when unstacking (no floating), and itemsByShelf sync on shelf change.&lt;/li&gt;
+      &lt;li&gt;&lt;b&gt;v20.2&lt;/b&gt; , 2026-10-02 , Coordinate fix: I kept group.position.y at 0 and used baseY through applyBase(), which fixes floating when unstacking.&lt;/li&gt;
+      &lt;li&gt;&lt;b&gt;v20.3&lt;/b&gt; , 2026-10-02 , Ghost fix and progressive shelf-skip: edges and labels move with applyBase (no skeletons); pointer Y zones map to shelves, so dragging up gradually moves an item from S4 to S3 to S2 to S1.&lt;/li&gt;
+      &lt;li&gt;&lt;b&gt;v20.4&lt;/b&gt; , 2026-10-02 , I tightened the zones and collision: 42px steps with 14px hysteresis (not 20% zones); same-level stacking allowed (this fixes the Accessories box passing through the Hardware box).&lt;/li&gt;
+      &lt;li&gt;&lt;b&gt;v20.5&lt;/b&gt; , 2026-10-02 , Tray ghosts: trays create 2 meshes and 2 edge sets that were not tracked; I now store them in userData.trayParts and move them with applyBase.&lt;/li&gt;
+      &lt;li&gt;&lt;b&gt;v20.6&lt;/b&gt; , 2026-10-02 , Stack children: items stacked on a dragged item now move with it (the copper strap on the Accessories box follows).&lt;/li&gt;
+      &lt;li&gt;&lt;b&gt;v20.7&lt;/b&gt; , 2026-10-02 , I fixed a shelf ReferenceError: targetIdx was used before its let declaration and crashed shelf-skip; I removed the broken hysteresis and use simple 42px steps.&lt;/li&gt;
+      &lt;li&gt;&lt;b&gt;v20.17&lt;/b&gt; , 2026-10-23 , Release audit: I checked the complete file end to end. I fixed the Panels button, which threw an error and did nothing when clicked because its panel group was declared inside a block the button code cannot reach. I fixed the pan buttons so a press can no longer leave the view panning on its own, made the 3D view load only when 3D Mode is opened and pause while it is closed, fixed Explode in Crown mode (it threw an error and stopped halfway), fixed items dragged to a different shelf staying attached to their old shelf, fixed the Auto-rotate button ignoring its first click after an explode, stopped the arrow keys from hijacking the snap selector and focused buttons, cleared held keys when the window loses focus, made a cancelled drag release cleanly, guarded saved positions against corrupt values, added a plain message for browsers without WebGL, fixed the fuse roll being described as tall when it lies long, corrected the crown item count, fixed a stale note about which box holds the surprise character, and rewrote this revision history in my own words for release.&lt;/li&gt;
     &lt;/ul&gt;&lt;/details&gt;&lt;/div&gt;
   &lt;/details&gt;
 &lt;/aside&gt;
@@ -55014,7 +55015,7 @@ class CSS2DRenderer {
 
 export { CSS2DObject, CSS2DRenderer };
 
-/* ---------------- dimensions (inches, from Carlos 2026-09-30) ---------------- */
+/* ---------------- dimensions (inches, from my measurements on 2026-09-30) ---------------- */
 const CAB = { W: 36, D: 29 };          // interior footprint
 const BOARD = 0.75;                     // shelf board thickness (nominal)
 const WALL = 1;                         // cabinet wall/post thickness (nominal)
@@ -55034,10 +55035,10 @@ const shelfTop = id =&gt; SHELVES.find(s =&gt; s.id === id).top;
 const C = {
   pcb: 0xbdd3ea, fusekit: 0xe7dcc0, rk5: 0xf2cf4e, hw: 0xc9ced4,
   acc: 0xc4e2bd, trash: 0xeec3d2, tray: 0x8a8f96, dark: 0x2e333b,
-  panel: 0xd9dee3, emt: 0xb9c0c7, bush: 0xf4f4f4, board: 0x7fa8d0, frame: 0x7fa8d0   // v17g: entire cabinet blue (Carlos 2026-10-01)   // v14: shelf boards match the real panel blue
+  panel: 0xd9dee3, emt: 0xb9c0c7, bush: 0xf4f4f4, board: 0x7fa8d0, frame: 0x7fa8d0   // v17g: entire cabinet blue (2026-10-01)   // v14: shelf boards match the real panel blue
 };
 const ITEMS = [
-  // v17 — S1 top shelf per Carlos 2026-10-01 (photos + dictation):
+  // v17 — S1 top shelf, my layout of 2026-10-01 (photos + dictation):
   // right side = front stack PCB2/PCB3 + back stack PCB4/PCB5, both lengthwise facing front;
   // left side = PCB1 smallest-face-front pushed to back w/ fuse kit on top;
   // RK5 upright against left wall w/ bagged fuse roll on top of the carton.
@@ -55061,10 +55062,10 @@ const ITEMS = [
   { id:&#x27;bush1&#x27;, name:&#x27;Bushing&#x27;, sub:&#x27;white plastic ring · 4.75 in dia · side by side with bushing 2 · right of EMTs&#x27;, shelf:&#x27;S2&#x27;, cyl:{r:2.375,len:1.25,hole:1.7}, pos:[-11.125,-6.75], y:53.25, color:C.bush },
   { id:&#x27;bush2&#x27;, name:&#x27;Bushing&#x27;, sub:&#x27;white plastic ring · 4.75 in dia · side by side with bushing 1 · right of EMTs&#x27;, shelf:&#x27;S2&#x27;, cyl:{r:2.375,len:1.25,hole:1.7}, pos:[-11.125,-2.0], y:53.25, color:C.bush },
   // S3 — empty (growth space)
-  // v17 — S4: trash-bag roll corrected per Carlos 2026-10-01: 8.3 in TALL, 4 in dia, standing upright
+  // v17 — S4: trash-bag roll corrected 2026-10-01: 8.3 in TALL, 4 in dia, standing upright
   { id:&#x27;dcps&#x27;, name:&#x27;DCPS Box&#x27;, sub:&#x27;PCB13241 + PCB13242 · signal xfmr 14A-05-1754 · 20x10.5x18 in&#x27;, shelf:&#x27;S4&#x27;, size:[20,10.5,18], pos:[2,0], y:27.75, color:0x9fc0e0 },
-  { id:&#x27;trashbag&#x27;, name:&#x27;Trash-bag roll&#x27;, sub:&#x27;red/white · 4 in dia x 8.3 in tall · standing upright · Carlos tape 2026-10-01&#x27;, shelf:&#x27;S4&#x27;, cyl:{r:2,len:8.3}, pos:[-13,0], y:27.75, color:C.trash },
-  // v17 — S5 bottom shelf per Carlos 2026-10-01: hwbox smallest-face-front; black door panel
+  { id:&#x27;trashbag&#x27;, name:&#x27;Trash-bag roll&#x27;, sub:&#x27;red/white · 4 in dia x 8.3 in tall · standing upright · tape-measured 2026-10-01&#x27;, shelf:&#x27;S4&#x27;, cyl:{r:2,len:8.3}, pos:[-13,0], y:27.75, color:C.trash },
+  // v17 — S5 bottom shelf, my layout of 2026-10-01: hwbox smallest-face-front; black door panel
   // standing against back wall behind hwbox; accessories box on hwbox; trays right w/ sleeve
   // standing between trays and right wall; brackets in front of trays; copper L on trays.
   { id:&#x27;hwbox&#x27;, name:&#x27;Hardware/Misc box&#x27;, sub:&#x27;16.5x13x22 in · smallest face front · nested cartons, wire, fasteners, docs&#x27;, shelf:&#x27;S5&#x27;, size:[16.5,13,22], pos:[-9,-3.25], y:0, color:C.hw },
@@ -55082,7 +55083,16 @@ const ITEMS = [
 
 /* ---------------- renderer / scene ---------------- */
 const viewport = document.getElementById(&#x27;viewport&#x27;);
-const renderer = new WebGLRenderer({ antialias: true });
+let renderer;
+try {
+  renderer = new WebGLRenderer({ antialias: true });
+} catch (e) {   // release fix 2026-10-23: without WebGL, explain it instead of leaving a dead 3D view
+  const d = document.createElement(&#x27;div&#x27;);
+  d.style.cssText = &#x27;position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;color:#dfe7ee;font:15px system-ui,sans-serif;background:#10161d;z-index:50&#x27;;
+  d.textContent = &#x27;The 3D view needs WebGL, which this browser or computer has disabled. The 2D inventory works normally: use the 2D Mode button to go back.&#x27;;
+  document.body.appendChild(d);
+  throw e;
+}
 // v10: adaptive DPR + shadow resolution — compact/mobile gets cheaper settings
 const isCompact = matchMedia(&#x27;(max-width: 700px)&#x27;).matches || (navigator.maxTouchPoints &gt; 0 &amp;&amp; Math.min(innerWidth, innerHeight) &lt; 700);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, isCompact ? 1.5 : 2));
@@ -55108,7 +55118,7 @@ const TGT_HOME = new Vector3(0, 32, 0);
 // view direction so the whole crown ring fits; desktop (aspect &gt;= 1) keeps the
 // exact v12 framing. Set once at load / Reset View; exploding never moves the camera.
 const _camDir = new Vector3(110.6, 74.1 - 32, 142.2).normalize();
-// v17c: ONE home distance and direction on every device (Carlos C1 consistency; GrokBot 2026-10-01).
+// v17c: ONE home distance and direction on every device (consistency fix, 2026-10-01).
 // The v13 portrait pullback (up to 2.1x) made phones open pulled-back even when the layout matched.
 // Distance 185 frames the assembled cabinet on portrait too; pinch to zoom out for exploded view.
 const _camDist = 185;
@@ -55125,7 +55135,7 @@ controls.dampingFactor = 0.08;
 // no device silently gets a different scheme.)
 controls.mouseButtons = { LEFT: MOUSE.ROTATE, MIDDLE: MOUSE.DOLLY, RIGHT: MOUSE.PAN };
 controls.touches = { ONE: TOUCH.ROTATE, TWO: TOUCH.DOLLY_PAN };
-// v20.11: separate mobile vs desktop controls (Carlos 2026-10-02)
+// v20.11: separate mobile vs desktop controls (2026-10-02)
 const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || (&#x27;ontouchstart&#x27; in window);
 if (isMobile) {
   controls.zoomSpeed = 1.0;  // v20.11: phone zoom was way too fast at 2.0
@@ -55215,6 +55225,7 @@ SHELVES.forEach((sh, i) =&gt; {
 /* ---------------- cabinet frame ---------------- */
 const frameGroup = new Group();
 scene.add(frameGroup);
+let panelsGroup = null;   // script scope: the Panels button handler uses it (it was block-scoped, so clicking Panels threw a ReferenceError)
 {
   const fm = mat(C.frame);
   const post = new BoxGeometry(WALL, 71.75, WALL);
@@ -55234,7 +55245,7 @@ scene.add(frameGroup);
   frameGroup.add(plinth);
   // side + back panels (toggleable)
   const pm = new MeshStandardMaterial({ color: 0x7fa8d0, roughness: 0.6, metalness: 0.15, transparent: true, opacity: 0.22, depthWrite: false, side: DoubleSide });
-  const panelsGroup = new Group();   // v10: declared before mkPanel closes over it (was var-hoisted)
+  panelsGroup = new Group();   // v10: assigned before mkPanel closes over it
   const mkPanel = (w, h, d, x, y, z) =&gt; {
     const m = new Mesh(new BoxGeometry(w, h, d), pm);
     m.position.set(x, y, z);
@@ -55320,7 +55331,7 @@ function doorsDismiss() {   // fade out from whatever state
 function doorsToggleOpen() {   // click on a closed door
   if (doorState.mode !== &#x27;closed&#x27;) return;
   doorState.mode = &#x27;opening&#x27;; doorState.t0 = performance.now();
-  // v17g: seam + Toshiba tag + hint vanish the instant the doors start opening (Carlos 2026-10-01)
+  // v17g: seam + Toshiba tag + hint vanish the instant the doors start opening (2026-10-01)
   if (doorSeam) doorSeam.visible = false;
   if (nameStrip) nameStrip.visible = false;
   if (doorHint) doorHint.visible = false;
@@ -55375,7 +55386,7 @@ function buildItem(def) {
   const m = mat(def.color, { unique: true });   // v10: unique — selection writes emissive on this instance
   let mesh, w, h, d, yC;
   if (def.trays12) {
-    // v17g: two rectangular stacks of 6 nested flat trays (Carlos 2026-10-01). One selectable
+    // v17g: two rectangular stacks of 6 nested flat trays (2026-10-01). One selectable
     // item, rendered as two rectangles with a visible seam between them, not 12 separate squares.
     w = 12.75; h = 6; d = 11.25;
     const trayParts = [];  // v20.5: track all for applyBase (ghost fix)
@@ -55445,11 +55456,11 @@ function buildItem(def) {
   mesh.castShadow = mesh.receiveShadow = true;
   mesh.userData.itemId = def.id;
   g.add(mesh);
-  // v17: bubble-wrapped black C-channel panels (Carlos 2026-10-01: the 41 in panels are black
+  // v17: bubble-wrapped black C-channel panels (2026-10-01: the 41 in panels are black
   // channels in bubble wrap with a white paper label band, per photos). Dark core already the
   // main mesh; add a translucent wrap shell plus the paper band. Extras carry the item id so
   // selection/explode treat them as part of the panel; they are not raycast targets.
-  // v18: formed sheet-metal lips (Carlos 2026-10-01). panelLip: &#x27;longA&#x27; (0.5in one side), &#x27;endB&#x27; (0.25in both ends), &#x27;longL&#x27; (0.25in both long sides).
+  // v18: formed sheet-metal lips (2026-10-01). panelLip: &#x27;longA&#x27; (0.5in one side), &#x27;endB&#x27; (0.25in both ends), &#x27;longL&#x27; (0.25in both long sides).
   if (def.panelLip) {
     const lipT = 0.08;   // 2mm sheet
     const lipMat = mat(0x1b1b1d);
@@ -55503,7 +55514,7 @@ function buildItem(def) {
   // EMT throat ring (yellow) — v16b: scaled to the 4.5 in EMT.
   // v16c FIX: v16b referenced `r` here, but r is block-scoped inside `if (def.cyl)`
   // above -&gt; ReferenceError on emt1 aborted the whole module -&gt; blank page. Use def.cyl.r.
-  // v16c: conduit locknut ring at the base (Gemini 2026-10-01: the &quot;adapter&quot; is the
+  // v16c: conduit locknut ring at the base (2026-10-01: the &quot;adapter&quot; is the
   // EMT fitting&#x27;s locknut, not a separate item).
   if (def.id === &#x27;emt1&#x27; || def.id === &#x27;emt2&#x27;) {
     const er = def.cyl.r;
@@ -55541,15 +55552,15 @@ SHELVES.forEach(sh =&gt; { itemsByShelf[sh.id] = ITEMS.filter(d =&gt; d.shelf ==
 // shared one key across versions AND across devices, so a phone that had items drag-edited kept
 // showing the old arrangement while the computer showed the corrected one. Saved positions are
 // per-device by design; the versioned key keeps each release consistent everywhere.)
-const LS_KEY = &#x27;comsat-twin-v20-7&#x27;;   // v20: AI-team integrated (fresh key)
+const LS_KEY = &#x27;comsat-twin-v20-7&#x27;;   // v20: fresh versioned key
 function loadSaved() {
   try {
     const s = JSON.parse(localStorage.getItem(LS_KEY) || &#x27;{}&#x27;);
     Object.entries(s).forEach(([id, p]) =&gt; {
       const g = itemById[id];
-      if (g &amp;&amp; Array.isArray(p) &amp;&amp; p.length === 2) g.position.set(p[0], 0, p[1]);
+      if (g &amp;&amp; Array.isArray(p) &amp;&amp; p.length === 2 &amp;&amp; Number.isFinite(p[0]) &amp;&amp; Number.isFinite(p[1])) g.position.set(p[0], 0, p[1]);   // release fix 2026-10-23: ignore corrupt saved coordinates
     });
-  } catch (e) { /* ignore */ }
+  } catch (e) { console.warn(&#x27;Saved 3D positions could not be loaded:&#x27;, e); }   // release fix 2026-10-23: log storage failures instead of hiding them
 }
 let saveT = null;
 function saveSoon() {
@@ -55557,7 +55568,7 @@ function saveSoon() {
   saveT = setTimeout(() =&gt; {
     const s = {};
     Object.entries(itemById).forEach(([id, g]) =&gt; { s[id] = [g.position.x, g.position.z]; });
-    try { localStorage.setItem(LS_KEY, JSON.stringify(s)); } catch (e) { /* ignore */ }
+    try { localStorage.setItem(LS_KEY, JSON.stringify(s)); } catch (e) { console.warn(&#x27;3D positions could not be saved:&#x27;, e); }   // release fix 2026-10-23
   }, 400);
 }
 loadSaved();
@@ -55614,7 +55625,7 @@ renderer.domElement.addEventListener(&#x27;pointerdown&#x27;, e =&gt; {
   dragStartShelf = g.userData.def.shelf;  // v20.4: for 42px step calculation
   dragStartClientY = e.clientY;  // v20.4
   // v20.6: collect stack children (items stacked on this one) — they move together
-  // v20.15: DEFENSIVE - also detect spatial stacking (Carlos 2026-10-02: stackedOn
+  // v20.15: DEFENSIVE - also detect spatial stacking (2026-10-02: stackedOn
   // is fragile, lost on reload, never set in authored layout). If an item&#x27;s X/Z
   // overlaps and its base sits at our top, treat it as a child.
   const collectChildren = (parentId, out) =&gt; {
@@ -55661,7 +55672,7 @@ renderer.domElement.addEventListener(&#x27;pointerdown&#x27;, e =&gt; {
     renderer.domElement.setPointerCapture(e.pointerId);
   }
 });
-// v19: drag collision + auto-stack + shelf-skip (Carlos 2026-10-02)
+// v19: drag collision + auto-stack + shelf-skip (2026-10-02)
 let dragStartPos = null, dragInvalid = false, dragShelfIdx = -1;
 function setDragTint(invalid) {
   if (!dragG) return;
@@ -55674,7 +55685,7 @@ function setDragTint(invalid) {
     }
   });
 }
-// v20.2: GrokBot - group.position.y stays 0; real Y in baseY/mesh.position.y
+// v20.2: group.position.y stays 0; real Y in baseY/mesh.position.y
 function applyBase(g, baseY) {
   const h = g.userData.size[1];
   g.userData.baseY = baseY;
@@ -55692,7 +55703,7 @@ function applyBase(g, baseY) {
   }
   if (g.userData.labelObj) g.userData.labelObj.position.y = meshY + (g.userData.labelHOff || 1.2);
 }
-// v20.10: apply base Y to an item AND its stacked children (Carlos 2026-10-02: copper floated
+// v20.10: apply base Y to an item AND its stacked children (2026-10-02: copper floated
 // when accbox moved off hwbox to shelf floor). Children keep their relative offset.
 function applyBaseWithChildren(g, baseY) {
   const oldBase = g.userData.baseY || 0;
@@ -55703,7 +55714,7 @@ function applyBaseWithChildren(g, baseY) {
     applyBase(ch, childOld + delta);
   });
 }
-// v20.16: ChatGPT 2026-10-02 - unified stack placement. Capture entire stack
+// v20.16: unified stack placement (2026-10-02). Capture entire stack
 // at pointerdown with dy offsets, then move atomically on BOTH stacking and
 // move paths. Eliminates the STACK(applyBase root only) vs MOVE(applyBaseWithChildren)
 // asymmetry that stranded children when collision classification was imperfect.
@@ -55786,7 +55797,7 @@ function checkDragCollision(nx, nz) {
 renderer.domElement.addEventListener(&#x27;pointermove&#x27;, e =&gt; {
   if (!dragG) return;
   if (downXY &amp;&amp; Math.hypot(e.clientX - downXY[0], e.clientY - downXY[1]) &gt; 4) movedFar = true;
-  // v20.4: GrokBot 42px steps + 14px hysteresis (Carlos: zones were too tight)
+  // v20.4: 42px steps + 14px hysteresis (zones were too tight)
   // Pointer travel from drag start, not absolute zones. 42px per shelf.
   const shelfOrder = [&#x27;S5&#x27;, &#x27;S4&#x27;, &#x27;S3&#x27;, &#x27;S2&#x27;, &#x27;S1&#x27;];  // bottom -&gt; top
   const curShelf = dragG.userData.def.shelf;
@@ -55800,7 +55811,7 @@ renderer.domElement.addEventListener(&#x27;pointermove&#x27;, e =&gt; {
     steps = Math.floor(pullPx / STEP_PX);
   }
   // v20.7: simple 42px steps (hysteresis removed - was causing ReferenceError)
-  // v20.8: Allow both up and down (Carlos: couldn&#x27;t go down)
+  // v20.8: Allow both up and down (downward drags were blocked)
   // Negative pullPx = downward, positive = upward
   let stepsDown = 0;
   if (pullPx &lt; 0) {
@@ -55814,7 +55825,7 @@ renderer.domElement.addEventListener(&#x27;pointermove&#x27;, e =&gt; {
     applyBase(dragG, newTop);  // v20.3: use applyBase
     const worldY = newTop + dragG.parent.position.y;
     dragPlane.constant = -worldY;
-    const newGroup = shelfGroups[newShelf];
+    const newGroup = shelfGroups[targetIdx];   // release fix 2026-10-23: shelfGroups is an array; indexing it by shelf name always missed, so items dragged to another shelf never actually moved shelf groups
     if (newGroup &amp;&amp; dragG.parent !== newGroup) {
       dragG.parent.remove(dragG);
       newGroup.add(dragG);
@@ -55832,7 +55843,7 @@ renderer.domElement.addEventListener(&#x27;pointermove&#x27;, e =&gt; {
     const coll = checkDragCollision(nx, nz);
     if (coll.overlap) {
       if (coll.canStack) {
-        // v20.16: unified placeDraggedComponent (ChatGPT 2026-10-02).
+        // v20.16: unified placeDraggedComponent (2026-10-02).
         // Entire captured stack moves atomically. No more root-only applyBase.
         dragG.userData.stackedOn = coll.target.userData.def.id;
         placeDraggedComponent(nx, nz, coll.stackY);
@@ -55844,8 +55855,8 @@ renderer.domElement.addEventListener(&#x27;pointermove&#x27;, e =&gt; {
         dragInvalid = true;
       }
     } else {
-      // v20.16: unified placeDraggedComponent (ChatGPT 2026-10-02).
-      // v19.1: always snap Y to shelf top when not stacked (Carlos 2026-10-02: no floating)
+      // v20.16: unified placeDraggedComponent (2026-10-02).
+      // v19.1: always snap Y to shelf top when not stacked (2026-10-02: no floating)
       delete dragG.userData.stackedOn;
       placeDraggedComponent(nx, nz, shelfTop(dragG.userData.def.shelf));
       setDragTint(false);
@@ -55856,6 +55867,9 @@ renderer.domElement.addEventListener(&#x27;pointermove&#x27;, e =&gt; {
       if (popup.dataset.itemId === dragG.userData.def.id) popupBody.innerHTML = infoHTML(dragG.userData.def, dragG);
     }
   }
+});
+renderer.domElement.addEventListener(&#x27;pointercancel&#x27;, e =&gt; {   // release fix 2026-10-23: a cancelled drag finalizes like a release, so camera controls can never stay disabled
+  if (dragG) renderer.domElement.dispatchEvent(new PointerEvent(&#x27;pointerup&#x27;, { clientX: e.clientX, clientY: e.clientY, bubbles: true }));
 });
 renderer.domElement.addEventListener(&#x27;pointerup&#x27;, e =&gt; {
   if (dragG) {
@@ -55896,7 +55910,7 @@ renderer.domElement.addEventListener(&#x27;pointerup&#x27;, e =&gt; {
    the cabinet in the height×width (frontal) plane — a flat halo, no aura. */
 let explodeMode = &#x27;flat&#x27;;
 let explodeTarget = 0, explodeCur = 0, explodeT0 = 0, explodeAnim = false;
-// Indigo&#x27;s snap: fast burst outward, slight overshoot, then locks into place
+// Snap easing: fast burst outward, slight overshoot, then locks into place
 function easeOutBack(t) { const c1 = 1.70158, c3 = c1 + 1; return 1 + c3 * Math.pow(t - 1, 3) + c1 * Math.pow(t - 1, 2); }
 function easeInOut(t) { return t &lt; 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2; }
 function startExplodeAnim() { explodeT0 = performance.now(); explodeAnim = true; }
@@ -55960,10 +55974,10 @@ function computeCrownTargets() {
     LANES.forEach(z =&gt; pts.push({ x: px, y: py, z, nx, ny }));
   }
   const apexSample = Math.round((Math.PI / 2 - A0) / (A1 - A0) * (NPTS - 1));
-  // v19.1: Y-bands for shelf ordering in crown (Carlos 2026-10-02: S1 top both sides, S5 bottom both sides)
+  // v19.1: Y-bands for shelf ordering in crown (2026-10-02: S1 top both sides, S5 bottom both sides)
   const CROWN_BANDS = { &#x27;S5&#x27;: [8, 22], &#x27;S4&#x27;: [22, 36], &#x27;S3&#x27;: [36, 50], &#x27;S2&#x27;: [50, 64], &#x27;S1&#x27;: [64, 80] };
   const isPanelCrown = id =&gt; /^p[1-6]$/.test(id);
-  // v19: shelf-ordered first (S5 bottom -&gt; S1 top), then largest footprint (Carlos 2026-10-02)
+  // v19: shelf-ordered first (S5 bottom -&gt; S1 top), then largest footprint (2026-10-02)
   const SHELF_RANK = { &#x27;S5&#x27;: 0, &#x27;S4&#x27;: 1, &#x27;S3&#x27;: 2, &#x27;S2&#x27;: 3, &#x27;S1&#x27;: 4 };
   const order = ITEMS.slice().sort((a, b) =&gt; {
     const ra = SHELF_RANK[a.shelf] || 0, rb = SHELF_RANK[b.shelf] || 0;
@@ -56033,19 +56047,19 @@ function computeCrownTargets() {
   });
 }
 
-// v19: explode keeps shelf order — S5 (bottom) stays low, S1 (top) stays high (Carlos 2026-10-02).
+// v19: explode keeps shelf order — S5 (bottom) stays low, S1 (top) stays high (2026-10-02).
 // Panels (p1-p6) explode freely on a wider radius.
 const SHELF_ORDER_IDX = { &#x27;S1&#x27;: 0, &#x27;S2&#x27;: 1, &#x27;S3&#x27;: 2, &#x27;S4&#x27;: 3, &#x27;S5&#x27;: 4 };  // 0=top
-// v20.13: AI team synthesis (GrokBot + ChatGPT, Carlos 2026-10-02)
-// - GrokBot: ty must be a LIFT (targetFeet - baseY), not world Y. The old code
+// v20.13: explode synthesis (2026-10-02)
+// - ty must be a LIFT (targetFeet - baseY), not world Y. The old code
 //   double-counted baseY, floating PCBs near y=127 instead of near S1.
-// - ChatGPT: cabinet-anchored bands + size-aware arc packing. Radius from actual
+// - Cabinet-anchored bands + size-aware arc packing. Radius from actual
 //   item widths, not 6*sqrt(n). Panels in compact 24-degree wedge.
 function computeExplodeTargets() {
   if (explodeMode === &#x27;crown&#x27;) { computeCrownTargets(); return; }
   const DEG = Math.PI / 180;
   const clamp = (v, lo, hi) =&gt; Math.max(lo, Math.min(hi, v));
-  // ChatGPT band anchors (feet target Y), S1 essentially on real top shelf
+  // Band anchors (feet target Y), S1 essentially on real top shelf
   const BANDS = {
     S1: { y: 60.5, height: 4.5 },
     S2: { y: 52.5, height: 5.5 },
@@ -56114,7 +56128,7 @@ function computeExplodeTargets() {
       const baseY = u.baseY || 0;
       u.tx = Math.cos(a) * radius;
       u.tz = Math.sin(a) * radius;
-      u.ty = targetFeet - baseY;  // GrokBot lift correction: group lift, not world Y
+      u.ty = targetFeet - baseY;  // lift correction: group lift, not world Y
     });
     // S2 panel cluster: 24-degree wedge, 0.2in vertical stagger
     if (shId === &#x27;S2&#x27; &amp;&amp; panels.length) {
@@ -56131,7 +56145,7 @@ function computeExplodeTargets() {
         const baseY = u.baseY || 0;
         u.tx = Math.cos(a) * radius;
         u.tz = Math.sin(a) * radius;
-        u.ty = targetFeet - baseY;  // GrokBot lift correction
+        u.ty = targetFeet - baseY;  // lift correction
         maxRadiusUsed = Math.max(maxRadiusUsed, radius);
       });
     }
@@ -56156,8 +56170,8 @@ function explodeHome() {
 }
 computeExplodeTargets();
 
-/* ---------------- easter egg: peek-a-boo peace-sign dude (Indigo&#x27;s idea) ---
-   Hidden on ONE box only — the yellow RK5 fuse carton. Click it:
+/* ---------------- easter egg: peek-a-boo peace-sign character ---
+   Hidden on ONE box only — the Hardware box. Click it:
    the lid flips open, a little brown dude pops up, throws a peace sign,
    and ducks back in. */
 const egg = { active:false, t0:0, lidPivot:null, dude:null, arm:null, head:null, topY:0, hiddenY:0, shownY:0 };
@@ -56228,7 +56242,7 @@ function triggerEgg(g) {
   if (explodeAnim) return;   // v14: allowed at rest AND fully exploded — only blocked mid-tween
   const def = g.userData.def;
   if (!def.box) return;  // every box gets the lid flap; the dude is yellow-box-only
-  const withDude = (def.id === &#x27;hwbox&#x27;);      // v19: the little dude lives in the Hardware box (Carlos 2026-10-02)
+  const withDude = (def.id === &#x27;hwbox&#x27;);      // v19: the character lives in the Hardware box (2026-10-02)
   const withSpark = (def.id === &#x27;fusekit&#x27;);   // v14: the fuse kit gets a spark-flash easter egg
   if (withDude &amp;&amp; !egg.dude) return;          // v15: flap still works if the dude asset ever fails to build
   const bb = new Box3().setFromObject(g.userData.mesh);
@@ -56251,7 +56265,7 @@ function triggerEgg(g) {
     }
   }
   // v19: flap opens on the CLICKED box (g), not the stack-top (topG).
-  // Carlos 2026-10-02: clicking S5 boxes was opening the flap on the box above.
+  // 2026-10-02: clicking S5 boxes was opening the flap on the box above.
   const [tw, , td] = g.userData.size;
   const gbb = new Box3().setFromObject(g.userData.mesh);
   const gc = gbb.getCenter(new Vector3());
@@ -56405,7 +56419,7 @@ const popup = $(&#x27;popup&#x27;), popupBody = popup.querySelector(&#x27;.p-bod
 function infoHTML(def, g) {
   const [w, hh, d] = g.userData.size;
   const dim = def.cyl
-    ? (def.cyl.axis === &#x27;x&#x27; ? `Ø${(def.cyl.r*2).toFixed(1)}″ × ${def.cyl.len}″ long` : `Ø${(def.cyl.r*2).toFixed(1)}″ × ${def.cyl.len}″ tall`)
+    ? (def.cyl.axis === &#x27;y&#x27; ? `Ø${(def.cyl.r*2).toFixed(1)}″ × ${def.cyl.len}″ tall` : `Ø${(def.cyl.r*2).toFixed(1)}″ × ${def.cyl.len}″ long`)   // release fix 2026-10-23: only a Y-axis cylinder stands tall; X and Z lie long
     : `${w}″ × ${d}″ × ${hh}″ H`;
   return `&lt;div class=&quot;nm&quot;&gt;${def.name}&lt;/div&gt;&lt;div class=&quot;sub&quot;&gt;${def.sub}&lt;/div&gt;` +
     `&lt;div class=&quot;meta&quot;&gt;Shelf ${def.shelf} · ${dim}&lt;br&gt;` +
@@ -56498,7 +56512,7 @@ function toggleBtn(id, fn, initial) {
   b.addEventListener(&#x27;click&#x27;, () =&gt; { on = !on; paint(); fn(on); });
   return v =&gt; { on = v; paint(); fn(on); };
 }
-toggleBtn(&#x27;b-rot&#x27;, on =&gt; { controls.autoRotate = on; }, false);
+const setRotBtn = toggleBtn(&#x27;b-rot&#x27;, on =&gt; { controls.autoRotate = on; }, false);   // release fix 2026-10-23: single setter for rotation state, so Explode cannot desync the button (it ignored its first click)
 // v10: one explicit label state — the toggle is the only writer
 let labelsVisible = false;
 function setLabelsVisible(on) {
@@ -56508,40 +56522,47 @@ function setLabelsVisible(on) {
 }
 toggleBtn(&#x27;r-labels&#x27;, on =&gt; setLabelsVisible(on), false);
 setLabelsVisible(false);
-// v20.10: auto zoom-out + auto-rotate on explode (Carlos 2026-10-02)
+// v20.10: auto zoom-out + auto-rotate on explode (2026-10-02)
 let explodeAutoRotate = false;
 function stopExplodeAutoRotate() {
   if (explodeAutoRotate) {
     explodeAutoRotate = false;
-    controls.autoRotate = false;
-    const rb = document.getElementById(&#x27;b-rot&#x27;);
-    if (rb) rb.classList.remove(&#x27;on&#x27;);
+    setRotBtn(false);
   }
 }
 renderer.domElement.addEventListener(&#x27;pointerdown&#x27;, stopExplodeAutoRotate, { capture: true });
-// v20.11: keyboard arrow keys pan/strafe (Carlos 2026-10-02: want keyboard arrows for panning)
+// v20.11: keyboard arrow keys pan/strafe (2026-10-02: keyboard arrows for panning)
 const keysHeld = {};
 window.addEventListener(&#x27;keydown&#x27;, (e) =&gt; {
-  if (e.target.tagName === &#x27;INPUT&#x27; || e.target.tagName === &#x27;TEXTAREA&#x27;) return;
+  if ([&#x27;INPUT&#x27;, &#x27;TEXTAREA&#x27;, &#x27;SELECT&#x27;, &#x27;BUTTON&#x27;].includes(e.target.tagName) || e.target.isContentEditable) return;   // release fix 2026-10-23: arrow keys and Space belong to a focused control (snap selector, buttons), not the camera
   keysHeld[e.key] = true;
   if ([&#x27;ArrowUp&#x27;, &#x27;ArrowDown&#x27;, &#x27;ArrowLeft&#x27;, &#x27;ArrowRight&#x27;, &#x27; &#x27;].includes(e.key)) {
     e.preventDefault();
   }
-  // Spacebar held = touchpad two-finger acts as scroll/zoom (Carlos 2026-10-02)
+  // Spacebar held = touchpad two-finger acts as scroll/zoom (2026-10-02)
   if (e.key === &#x27; &#x27;) document.body.classList.add(&#x27;space-held&#x27;);
 });
 window.addEventListener(&#x27;keyup&#x27;, (e) =&gt; {
   delete keysHeld[e.key];
   if (e.key === &#x27; &#x27;) document.body.classList.remove(&#x27;space-held&#x27;);
 });
-// Continuous pan while arrow keys held
-setInterval(() =&gt; {
+window.addEventListener(&#x27;blur&#x27;, () =&gt; {   // release fix 2026-10-23: a missed key release (alt-tab) must not leave the view panning on its own
+  Object.keys(keysHeld).forEach(k =&gt; delete keysHeld[k]);
+  document.body.classList.remove(&#x27;space-held&#x27;);
+});
+// Continuous pan while arrow keys held: checked inside the render loop
+// (release fix 2026-10-23: no standalone interval ticking while idle or hidden)
+let lastKeyPan = 0;
+function stepKeys(now) {
+  if (!keysHeld[&#x27;ArrowUp&#x27;] &amp;&amp; !keysHeld[&#x27;ArrowDown&#x27;] &amp;&amp; !keysHeld[&#x27;ArrowLeft&#x27;] &amp;&amp; !keysHeld[&#x27;ArrowRight&#x27;]) return;
+  if (now - lastKeyPan &lt; 50) return;
+  lastKeyPan = now;
   if (keysHeld[&#x27;ArrowUp&#x27;]) panBy(0, 1);
   if (keysHeld[&#x27;ArrowDown&#x27;]) panBy(0, -1);
   if (keysHeld[&#x27;ArrowLeft&#x27;]) panBy(-1, 0);
   if (keysHeld[&#x27;ArrowRight&#x27;]) panBy(1, 0);
-}, 50);
-// v20.10: pan arrow buttons (Carlos 2026-10-02: computer needs pan controls)
+}
+// v20.10: pan arrow buttons (2026-10-02: computer needs pan controls)
 function panBy(dx, dy) {
   const panDist = 12;
   const dir = new Vector3();
@@ -56561,14 +56582,17 @@ function panBy(dx, dy) {
     const dx = id === &#x27;r-pan-left&#x27; ? -1 : id === &#x27;r-pan-right&#x27; ? 1 : 0;
     const dy = id === &#x27;r-pan-up&#x27; ? 1 : id === &#x27;r-pan-down&#x27; ? -1 : 0;
     let panInterval = null;
-    const startPan = (e) =&gt; { e.preventDefault(); stopExplodeAutoRotate(); panBy(dx, dy); panInterval = setInterval(() =&gt; panBy(dx, dy), 50); };
     const stopPan = () =&gt; { if (panInterval) { clearInterval(panInterval); panInterval = null; } };
+    const startPan = (e) =&gt; { e.preventDefault(); stopExplodeAutoRotate(); stopPan(); panBy(dx, dy); panInterval = setInterval(() =&gt; panBy(dx, dy), 50); };
     btn.addEventListener(&#x27;pointerdown&#x27;, startPan);
     btn.addEventListener(&#x27;pointerup&#x27;, stopPan);
+    btn.addEventListener(&#x27;pointercancel&#x27;, stopPan);
     btn.addEventListener(&#x27;pointerleave&#x27;, stopPan);
+    window.addEventListener(&#x27;pointerup&#x27;, stopPan);
+    window.addEventListener(&#x27;blur&#x27;, stopPan);
   }
 });
-// v20.11: controls legend toggle (Carlos 2026-10-02)
+// v20.11: controls legend toggle (2026-10-02)
 (function() {
   const legend = document.getElementById(&#x27;controls-legend&#x27;);
   const toggle = document.getElementById(&#x27;r-legend&#x27;);
@@ -56586,21 +56610,19 @@ toggleBtn(&#x27;r-explode&#x27;, on =&gt; {
   endEgg();
   exitFocus();
   doorsDismiss();   // v16: the doors fade so they never block the explosion
-  // box-jump guard (Indigo&#x27;s stress test): only re-snapshot home positions
+  // box-jump guard (from my stress test): only re-snapshot home positions
   // when fully assembled, so a mid-animation re-toggle can&#x27;t corrupt them
   if (on) {
     if (explodeTarget === 0 &amp;&amp; explodeCur === 0) snapshotHome();
     // v20.13: explodeOut returns layout (avoids duplicate compute)
-    const layout = explodeOut();
+    const layout = explodeOut() || {};   // release fix 2026-10-23: Crown mode returns no layout object; without this guard, Explode in Crown mode threw and stopped halfway
     const radiusComp = Math.max(0, (layout.maxRadius || 32) - 32) * 1.5;
     const explodeDist = Math.min(248, _camDist * 1.2 + radiusComp);
     const explodeTgt = new Vector3(0, layout.targetY || 35, 0);
     const explodePos = explodeTgt.clone().addScaledVector(_camDir, explodeDist);
     flyTo(explodePos, explodeTgt, 800);
-    controls.autoRotate = true;
     explodeAutoRotate = true;
-    const rb = document.getElementById(&#x27;b-rot&#x27;);
-    if (rb) rb.classList.add(&#x27;on&#x27;);
+    setRotBtn(true);
   }
   else {
     explodeHome();
@@ -56628,7 +56650,7 @@ $(&#x27;b-resetview&#x27;).addEventListener(&#x27;click&#x27;, () =&gt; {
   camera.position.copy(CAM_HOME); controls.target.copy(TGT_HOME); controls.update();
 });
 $(&#x27;b-resetpos&#x27;).addEventListener(&#x27;click&#x27;, () =&gt; {
-  try { localStorage.removeItem(LS_KEY); } catch (e) {}
+  try { localStorage.removeItem(LS_KEY); } catch (e) { console.warn(&#x27;Saved 3D positions could not be cleared:&#x27;, e); }   // release fix 2026-10-23
   ITEMS.forEach(d =&gt; { const g = itemById[d.id]; g.position.set(d.pos[0], 0, d.pos[1]); });
   snapshotHome();
   runFitCheck();
@@ -56683,6 +56705,9 @@ window.__twin = { triggerEgg, endEgg, itemById, ITEMS, shelfGroups, camera, cont
   setMode: v =&gt; { explodeMode = v; } };
 (function animate(now) {
   requestAnimationFrame(animate);
+  // Release fix (2026-10-23): while the 3D overlay is closed in the parent page, skip stepping and rendering.
+  try { const ov = window.parent &amp;&amp; window.parent.document.getElementById(&#x27;overlay3d&#x27;); if (ov &amp;&amp; ov.style.display === &#x27;none&#x27;) return; } catch (e) {}
+  stepKeys(now || performance.now());
   stepExplode();
   stepEgg(now || performance.now());
   stepDoors(now || performance.now());
